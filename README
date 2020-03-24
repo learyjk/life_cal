@@ -1,0 +1,2 @@
+1. Fix date picker (no popup in Safari)
+2. Add user attribute to week objects and autopopulate for a user based on birthdate when they register.
