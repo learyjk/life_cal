@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 
 {% for week in week_list %}
 <a href="{% url 'week_view' week.week_number %}">{{week}}</a> :
@@ -9,3 +12,5 @@
 O
 {% endfor %}
 {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="register" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Register</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'register' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" name="first_name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" name="last_name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate">Birthdate</label>
+                                <input type="date" placeholder="YYYY-MM-DD" name="birthdate" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password2">Password</label>
+                                <input type="password" name="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirm Password</label>
+                                <input type="password" name="password2" class="form-control" required>
+                            </div>
+                            <input type="submit" value="Register" class="btn btn-secondary btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript">
+    $(function () {
+        $('#birthdate').datetimepicker();
+    });
+</script>
+{% endblock %}
