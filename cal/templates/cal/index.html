@@ -1,6 +1,6 @@
-<p>here is some index text for the cal dir</p>
+
 {% for week in week_list %}
-<p>{{week}}</p>
+<a href="{% url 'week_view' week.week_number %}">{{week}}</a> :
 {% endfor %}
 
 {% for i in cal_length %}
