@@ -6,12 +6,11 @@ from week.models import Week
 
 def index(request):
 
-    week_list = Week.objects.order_by('week_number')
+    week_list = Week.objects.filter(user_id=request.user.id).order_by('week_number')
 
     context = {
         'week_list': week_list,
         'cal_width': range(52),
-        'cal_length': range(60)
     }
     return render(request, 'cal/index.html', context)
 

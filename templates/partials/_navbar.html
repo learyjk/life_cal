@@ -9,9 +9,9 @@
     <div class="navbar-nav">
 
         {% if user.is_authenticated %}
-        <li {% if 'index' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+        <li {% if '/cal/' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
             <a class="nav-link" href="{% url 'index' %}">
-                Welcome, {{ user.username }} Home </a>
+                Welcome, {{ user.username }}! Home </a>
         </li>
         <li class="nav-item mr-3">
             <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
@@ -32,11 +32,6 @@
                 Login</a>
         </li>
         {% endif %}
-
-
-      <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-      <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
     </div>
   </div>
 </nav>

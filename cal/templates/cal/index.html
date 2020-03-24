@@ -3,14 +3,12 @@
 {% block content %}
 
 {% for week in week_list %}
-<a href="{% url 'week_view' week.week_number %}">{{week}}</a> :
+<a href="{% url 'week_view' week.week_number %}">{{week}}</a> 
+{% if week.week_number|divisibleby:"52" %}
+<br>
+{% endif %}
 {% endfor %}
 
-{% for i in cal_length %}
-<p></p>
-{% for j in cal_width %}
-O
-{% endfor %}
-{% endfor %}
+
 
 {% endblock %}
