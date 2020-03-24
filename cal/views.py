@@ -16,7 +16,7 @@ def index(request):
 
 
 def week_view(request, week_number):
-    week = get_object_or_404(Week, week_number=week_number)
+    week = get_object_or_404(Week, week_number=week_number, user_id=request.user.id)
 
     context = {
         'week': week

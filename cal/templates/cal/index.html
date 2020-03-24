@@ -3,11 +3,19 @@
 {% block content %}
 
 {% for week in week_list %}
-<a href="{% url 'week_view' week.week_number %}">{{week}}</a> 
+    {% if week.is_current_week %}
+        <a href="{% url 'week_view' week.week_number %}">HERE!</a>
+    {% elif week.is_past %}
+        <a href="{% url 'week_view' week.week_number %}">X</a>
+    {% else %}
+        <a href="{% url 'week_view' week.week_number %}">O</a>
+    {% endif %}
+
 {% if week.week_number|divisibleby:"52" %}
 <br>
 {% endif %}
 {% endfor %}
+
 
 
 
