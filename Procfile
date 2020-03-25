@@ -1,1 +1,1 @@
-web: gunicorn life-cal.wsgi --log-file -
+web: gunicorn life_cal.wsgi --log-file -
