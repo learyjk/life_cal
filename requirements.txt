@@ -1,7 +1,13 @@
 asgiref==3.2.5
 Django==3.0.4
+entrypoints==0.3
+flake8==3.7.9
+gunicorn==20.0.4
+mccabe==0.6.1
 postgres==3.0.0
 psycopg2-binary==2.8.4
 psycopg2-pool==1.1
+pycodestyle==2.5.0
+pyflakes==2.1.1
 pytz==2019.3
 sqlparse==0.3.1
