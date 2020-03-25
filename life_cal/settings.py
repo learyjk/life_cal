@@ -27,7 +27,7 @@ SECRET_KEY = 'o_2jv#2)y=t6laq)39-7i!8r&@@1vsdtglu+j!lpp)ei6ez_h0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['life-cal.herokuapp.com','127.0.0.1','0.0.0.0']
+ALLOWED_HOSTS = ['life-cal.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

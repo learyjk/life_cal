@@ -1,24 +1,30 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-<p><a href="{% url 'index' %}">Back to Calendar</a></p>
 
-You are viewing week number {{week.week_number}} of your life.
-<p>
-The week of: {{week.date}}
+<div class="card" style="width: 40rem; margin: auto;">
+    <div class="card-header" align="center">
+        Week {{week.week_number}} of your life.
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">The week of: {{week.date}}</h5>
+        <p><a href="{% url 'index' %}">Back to Calendar</a></p>
+        <p class="card-text" align="left">
+            <form method="POST" action="{% url 'week_view' week.week_number %}">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input class="btn btn-primary" type="Submit" value="Add Highlight">
+            </form>
 
-<p>
-    <form method="POST" action="{% url 'week_view' week.week_number %}">
-    {% csrf_token %}
-    {{ form }}
-    <input type="Submit" value="Add Highlight">
-    </form>
 
-
-
-Highlights:
-{% for note in notes %}
-    <li>{{note}} <a href="{% url 'remove_note' note_id=note.id %}">Delete</a> </li>
-{% endfor %}
-
+            <p></p>
+            <h5>Highlights:</h5>
+            {% for note in notes %}
+            <li>{{note}} <a href="{% url 'remove_note' note_id=note.id %}">x</a> </li>
+            {% endfor %}
+        </p>
+    </div>
+</div>
 {% endblock %}
