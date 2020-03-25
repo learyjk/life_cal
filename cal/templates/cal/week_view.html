@@ -1,5 +1,24 @@
-You are viewing week number {{week.week_number}}
+{% extends 'base.html' %}
+
+{% block content %}
+<p><a href="{% url 'index' %}">Back to Calendar</a></p>
+
+You are viewing week number {{week.week_number}} of your life.
 <p>
 The week of: {{week.date}}
+
 <p>
-Here's the text associated with it: {{week.text}}
+    <form method="POST" action="{% url 'week_view' week.week_number %}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="Submit" value="Add Highlight">
+    </form>
+
+
+
+Highlights:
+{% for note in notes %}
+    <li>{{note}} <a href="{% url 'remove_note' note_id=note.id %}">Delete</a> </li>
+{% endfor %}
+
+{% endblock %}

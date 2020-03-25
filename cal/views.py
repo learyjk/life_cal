@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-
-from week.models import Week
+from django.shortcuts import render, get_object_or_404, redirect
+from week.models import Week, Note
+from week.forms import NoteForm
 
 
 def index(request):
@@ -16,13 +15,33 @@ def index(request):
 
 
 def week_view(request, week_number):
-    week = get_object_or_404(Week, week_number=week_number, user_id=request.user.id)
+    if request.method == "POST":
+        week = get_object_or_404(Week, week_number=week_number, user_id=request.user.id)
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            form = form.cleaned_data
+            new_note = Note(text=form['text'], week=week)
+            new_note.save()
 
-    context = {
-        'week': week
-    }
+        context = {
+            'week': week,
+            'form': NoteForm(),
+            'notes': week.note_set.all(),
+        }
+        return render(request, 'cal/week_view.html', context)
+    else:
+        week = get_object_or_404(Week, week_number=week_number, user_id=request.user.id)
 
-    return render(request, 'cal/week_view.html', context)
+        context = {
+            'week': week,
+            'form': NoteForm(),
+            'notes': week.note_set.all(),
+        }
+        return render(request, 'cal/week_view.html', context)
 
-    response = "You're looking at week number %s."
-    return HttpResponse(response % week_number)
+
+def remove_note(request, note_id):
+    note = Note.objects.get(id=note_id)
+    week = Week.objects.get(id=note.week.id, user_id=request.user.id)
+    note.delete()
+    return redirect('week_view', week_number=week.week_number)

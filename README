@@ -1,4 +1,5 @@
-1. Fix date picker (no popup in Safari)
-2. Add user attribute to week objects and autopopulate for a user based on birthdate when they register.
-3. Mark "This Week" on the cal.
-4. Allow user to make text entry for different weeks.
+1. DONE - Fix date picker (no popup in Safari)
+2. DONE - Add user attribute to week objects and autopopulate for a user based on birthdate when they register.
+3. DONE - Mark "This Week" on the cal.
+4. DONE - Allow user to make text entry for different weeks. (and can delete!)
+5. Styling - Allow color changes base don 'interesting' sets.

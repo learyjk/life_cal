@@ -19,3 +19,11 @@ class Week(models.Model):
     @property
     def is_current_week(self):
         return self.date <= date.today() and self.date > (date.today() - timedelta(7))
+
+
+class Note(models.Model):
+    text = models.CharField(max_length=255, blank=True)
+    week = models.ForeignKey(Week, on_delete=models.CASCADE, default=1, null=False)
+
+    def __str__(self):
+        return self.text

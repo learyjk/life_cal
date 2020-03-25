@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<p class="text-monospace">
 {% for week in week_list %}
     {% if week.is_current_week %}
-        <a href="{% url 'week_view' week.week_number %}">HERE!</a>
+        <a href="{% url 'week_view' week.week_number %}">H</a>
     {% elif week.is_past %}
         <a href="{% url 'week_view' week.week_number %}">X</a>
     {% else %}
@@ -15,8 +15,6 @@
 <br>
 {% endif %}
 {% endfor %}
-
-
-
+</p>
 
 {% endblock %}
