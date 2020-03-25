@@ -2,4 +2,4 @@
 2. DONE - Add user attribute to week objects and autopopulate for a user based on birthdate when they register.
 3. DONE - Mark "This Week" on the cal.
 4. DONE - Allow user to make text entry for different weeks. (and can delete!)
-5. Styling - Allow color changes base don 'interesting' sets.
+5. Styling - Allow color changes based on 'interesting' sets.
