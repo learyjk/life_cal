@@ -10,10 +10,11 @@
         <h5 class="card-title">The week of: {{week.date}}</h5>
         <p><a href="{% url 'index' %}">Back to Calendar</a></p>
         <p class="card-text" align="left">
+
             <form method="POST" action="{% url 'week_view' week.week_number %}">
                 {% csrf_token %}
-                {{ form }}
-                <input class="btn btn-secondary" type="Submit" value="Add Highlight">
+                {{ form.as_p }}
+                <input class="btn btn-secondary btn-sm" type="Submit" value="Add Highlight">
             </form>
 
 
