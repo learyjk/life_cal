@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = 'o_2jv#2)y=t6laq)39-7i!8r&@@1vsdtglu+j!lpp)ei6ez_h0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['life-cal.herokuapp.com']
+ALLOWED_HOSTS = ['life-cal.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'life_cal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'life-cal',
+        'NAME': 'lifecal',
         'USER': 'postgres',
         'PASSWORD': 'Postgres$@27',
         'HOST': 'localhost'
