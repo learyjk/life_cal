@@ -1,20 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p class="text-monospace">
-{% for week in week_list %}
-    {% if week.is_current_week %}
+<div class="row no-gutters text-monospace">
+    <div class="col-xl-3-m-0 col-lg-12-m-0">
+        {% for week in week_list %}
+
+
+        {% if week.is_current_week %}
         <a href="{% url 'week_view' week.week_number %}">H</a>
-    {% elif week.is_past %}
+        {% elif week.is_past %}
         <a href="{% url 'week_view' week.week_number %}">X</a>
-    {% else %}
+        {% else %}
         <a href="{% url 'week_view' week.week_number %}">O</a>
-    {% endif %}
+        {% endif %}
 
-{% if week.week_number|divisibleby:"52" %}
-<br>
-{% endif %}
-{% endfor %}
-</p>
+        {% if week.week_number|divisibleby:"52" %}
+    </div>
+</div>
+<div class="row no-gutters text-monospace">
+    <div class="col-xl-3-m-0 col-lg-12-m-0">
+        {% elif week.week_number|divisibleby:"13" %}
+    </div>&nbsp;
+    <div class="col-xl-3-m-0 col-lg-12-m-0">
+        {% endif %}
 
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+        alert("Your screen resolution is: " + window.innerWidth + "x" + window.innerHeight);
+    });
+</script>
 {% endblock %}
