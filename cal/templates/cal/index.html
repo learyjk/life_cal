@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row no-gutters text-monospace">
-    <div class="col-xl-3-m-0 col-lg-12-m-0">
+<div class="row no-gutters text-monospace text-center">
+    <div class="col-11 col-xl-auto">
         {% for week in week_list %}
-
 
         {% if week.is_current_week %}
         <a href="{% url 'week_view' week.week_number %}">H</a>
@@ -17,15 +16,24 @@
         {% if week.week_number|divisibleby:"52" %}
     </div>
 </div>
-<div class="row no-gutters text-monospace">
-    <div class="col-xl-3-m-0 col-lg-12-m-0">
+<div class="row no-gutters text-monospace text-center">
+    <div class="col-11 col-xl-auto">
         {% elif week.week_number|divisibleby:"13" %}
-    </div>&nbsp;
-    <div class="col-xl-3-m-0 col-lg-12-m-0">
+    </div>
+    &nbsp;<div class="col-11 col-xl-auto">
+
         {% endif %}
 
         {% endfor %}
     </div>
 </div>
 
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+        alert("Your screen resolution is: " + window.innerWidth + "x" + window.innerHeight);
+    });
+</script>
 {% endblock %}
