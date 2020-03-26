@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="row no-gutters text-monospace text-center">
-    <div class="col-11 col-xl-auto">
+    <div class="col-12 col-xl-auto">
         {% for week in week_list %}
 
         {% if week.is_current_week %}
@@ -17,10 +17,10 @@
     </div>
 </div>
 <div class="row no-gutters text-monospace text-center">
-    <div class="col-11 col-xl-auto">
+    <div class="col-12 col-xl-auto">
         {% elif week.week_number|divisibleby:"13" %}
     </div>
-    &nbsp;<div class="col-11 col-xl-auto">
+    &nbsp;<div class="col-12 col-xl-auto">
 
         {% endif %}
 
