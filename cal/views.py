@@ -5,7 +5,6 @@ from week.forms import NoteForm
 
 def index(request):
     if request.user.is_authenticated:
-
         week_list = Week.objects.filter(user_id=request.user.id).order_by('week_number')
 
         context = {
@@ -13,7 +12,6 @@ def index(request):
             'cal_width': range(52),
         }
         return render(request, 'cal/index.html', context)
-
     else:
         return redirect('login')
 
