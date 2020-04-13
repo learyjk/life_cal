@@ -1,11 +1,14 @@
-Life-cal is my interpretation of Your Life in Weeks by Tim Urban.
+thelifecal is my interpretation of "Your Life in Weeks" by Tim Urban.
 https://waitbutwhy.com/2014/05/life-weeks.html
 
-Life-cal is built using Django and Postgres for my CS50 Web final project.
-A live version of the site can be viewed here:
-https://life-cal.herokuapp.com
+thelifecal will motivate you.  We only have so much time for this world,
+and the clock never stops ticking.
 
-User must first register and provide a birthday.  From that,
+thelifecal uses Django and Postgres for my CS50 Web final project.
+A live version of the site can be viewed here:
+http://thelifecal.com
+
+User must first register and provide a birthday.  From there,
 A Postgres Week object is built for each work in that person's
 life assuming an 85 year lifespan.  After logging in, a user
 will see rows of X's and O's.  X's represent a week that has
@@ -13,9 +16,9 @@ already occurred, while an O represents a future week.  The
 current week is marked with an H.
 
 From here, a user can click on individual weeks and add highlights.
-This way, life-cal also acts as a light life journal.
+In this way, life-cal also acts as a life journal.
 
-The life-cal can be viewed on both large and small screens.  For
+thelifecal can be viewed on both large and small screens.  For
 large screens (>1200px) each row will contain 52 weeks (1 year).
 For small screens (<1200px) each row will be 13 weeks (1 quarter).
 This was a design choice to keep the calendar mobile responsive
